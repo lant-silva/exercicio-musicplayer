@@ -39,7 +39,9 @@ public class PlayerController {
 				musica = lista.get(i).split(";");
 			}
 			System.out.println("[Musica: "+musica[0]+" - Artista: "+musica[1]+" - Duracao: "+musica[2]+"]");
-			
+		}
+		
+		for(int i=0;i<lista.size();i++) {
 			executarMusica(musica[0], Integer.parseInt(musica[2]));
 		}
 	}
@@ -63,7 +65,11 @@ public class PlayerController {
 		int minutosCont=0;
 		while(i<=duracao) {
 			
-			System.out.println("Tempo: "+minutosCont+":"+segundosCont+" / "+minutos+":"+segundos );
+			if(segundosCont < 10) {
+				System.out.println("Tempo: "+minutosCont+":0"+segundosCont+" / "+minutos+":"+segundos);
+			}else {
+				System.out.println("Tempo: "+minutosCont+":"+segundosCont+" / "+minutos+":"+segundos );
+			}
 			if(segundosCont<60-1) {
 				segundosCont++;
 			}else {
